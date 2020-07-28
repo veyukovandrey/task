@@ -21,7 +21,11 @@ RUN apt-get update && apt-get install -qq -y \
 	php-xml \
 	php-mbstring
 	
-RUN wget https://get.symfony.com/cli/installer -O - | bash	
+RUN wget https://get.symfony.com/cli/installer -O - | bash
+
+RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony	
+
+RUN php bin/console server:start
 
 VOLUME /home/symfony4.4_console
 
