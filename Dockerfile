@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -qq -y \
 	
 RUN wget https://get.symfony.com/cli/installer -O - | bash
 
-RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony	
+RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
 CMD symfony server:start
 
@@ -33,4 +33,4 @@ WORKDIR /home/symfony4.4_console
 
 COPY ./ /home/symfony4.4_console/
 
-EXPOSE 8000
+
