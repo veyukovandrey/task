@@ -27,6 +27,11 @@ class User
      */
     private $email;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $group_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class User
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getGroupId(): ?int
+    {
+        return $this->group_id;
+    }
+
+    public function setGroupId(?int $group_id): self
+    {
+        $this->group_id = $group_id;
 
         return $this;
     }
