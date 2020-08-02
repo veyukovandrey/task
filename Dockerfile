@@ -25,7 +25,7 @@ RUN wget https://get.symfony.com/cli/installer -O - | bash
 
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
-#CMD symfony server:start
+CMD symfony server:start
 
 VOLUME /home/symfony4.4_console
 

@@ -4,7 +4,7 @@
 docker-compose up --build
 
 Заходим в контейнер app:
-docker exec -it app /bin/sh
+docker exec -it app /bin/bash
 
 Делаем миграции:
 php bin/console doctrine:migrations:migrate
