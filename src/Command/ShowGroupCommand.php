@@ -3,7 +3,7 @@
 
 namespace App\Command;
 
-use App\Entity\User;
+use App\Entity\Group;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -12,9 +12,9 @@ use Symfony\Component\Console\Input\InputArgument;
 
 use Doctrine\ORM\EntityManagerInterface;
 
-class ShowUserCommand extends Command
+class ShowGroupCommand extends Command
 {
-    protected static $defaultName = 'app:show-user';
+    protected static $defaultName = 'app:show-group';
 
     private $entityManager;
 
@@ -27,8 +27,8 @@ class ShowUserCommand extends Command
 
     protected function configure()
     {
-        $this->setDescription('Show table user')
-            ->setHelp('Show table user.');
+        $this->setDescription('Show table group')
+            ->setHelp('Show table group.');
 
     }
 
@@ -43,15 +43,15 @@ class ShowUserCommand extends Command
         //$user = $entityManager->getRepository(User::class)->findAll();
 
         $query = $entityManager->createQueryBuilder()
-            ->select('u')
-            ->from('App\Entity\User', 'u')
+            ->select('g')
+            ->from('App\Entity\Group', 'g')
             ->getQuery();
 
         $array_table = $query->getArrayResult();
 
         $table = new Table($output);
-        $table->setHeaders(['id', 'name', 'email', 'group_id'])
-           ->setRows($array_table);
+        $table->setHeaders(['id', 'name'])
+            ->setRows($array_table);
         $table->render();
 
 
